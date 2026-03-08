@@ -1,0 +1,17 @@
+:root {
+  --lato: 'lato', sans-serif;
+  --brown-gray: #4C3F3D;
+  --blue-black: #21202A;
+  --black: #000000;
+  --white: #FFFFFF;
+  --light-gray: #D3D3D3;
+  --gray: #8b8b8b;
+
+  --h1: 36px;
+  --h2: 32px;
+  --h3: 28px;
+  --h4: 24px;
+  --h5: 20px;
+  --h6: 18px;
+  --body: 16px;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "comp-4170-project",
+  "version": "1.0.0",
+  "description": "- Nathan - Sam - Kass - Pablo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crite-Spranberries/COMP-4170-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Crite-Spranberries/COMP-4170-Project/issues"
+  },
+  "homepage": "https://github.com/Crite-Spranberries/COMP-4170-Project#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
