@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "- Nathan - Sam - Kass - Pablo",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +20,9 @@
   },
   "homepage": "https://github.com/Crite-Spranberries/COMP-4170-Project#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "ejs": "^5.0.1",
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
