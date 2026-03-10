@@ -21,15 +21,15 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.render("landing.ejs");
 });
-``
+
 /* Login Page */
 app.get("/login", (req, res) => {
-  res.render("login.ejs");
+  res.render("login.ejs", { error: null });
 });
 
 /* Register Page */
 app.get("/register", (req, res) => {
-  res.render("register.ejs");
+  res.render("register.ejs", { error: null });
 });
 
 /* Home Page (after login/register) */
@@ -43,14 +43,21 @@ app.post("/register", async (req, res) => {
   const password = req.body.password;
 
   try {
+
     const checkUser = await db.query(
       "SELECT * FROM users WHERE email = $1",
       [email]
     );
 
     if (checkUser.rows.length > 0) {
-      res.send("Email already exists. Try logging in.");
+
+      // SHOW ERROR ON SAME PAGE
+      res.render("register.ejs", {
+        error: "Email already exists. Try logging in."
+      });
+
     } else {
+
       await db.query(
         "INSERT INTO users (email, password) VALUES ($1, $2)",
         [email, password]
@@ -58,35 +65,59 @@ app.post("/register", async (req, res) => {
 
       res.redirect("/home");
     }
+
   } catch (err) {
     console.log(err);
+
+    res.render("register.ejs", {
+      error: "Something went wrong. Please try again."
+    });
   }
 });
 
 /* LOGIN USER */
 app.post("/login", async (req, res) => {
+
   const email = req.body.email;
   const password = req.body.password;
 
   try {
+
     const result = await db.query(
       "SELECT * FROM users WHERE email = $1",
       [email]
     );
 
     if (result.rows.length > 0) {
+
       const storedPassword = result.rows[0].password;
 
       if (password === storedPassword) {
+
         res.redirect("/home");
+
       } else {
-        res.send("Incorrect Password");
+
+        res.render("login.ejs", {
+          error: "Incorrect Password"
+        });
+
       }
+
     } else {
-      res.send("User not found");
+
+      res.render("login.ejs", {
+        error: "User not found"
+      });
+
     }
+
   } catch (err) {
     console.log(err);
+
+    res.render("login.ejs", {
+      error: "Something went wrong."
+    });
   }
 });
 
