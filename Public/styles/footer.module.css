@@ -1,0 +1,80 @@
+.footer{
+    overflow:hidden;
+}
+
+
+.footerTop{
+    display:flex;
+    justify-content:space-between;
+    background:white;
+    padding:40px 60px;
+}
+
+.footerColumn{
+    width:20%;
+}
+
+.footerColumn h3{
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+.footerColumn ul{
+    list-style:none;
+    padding:0;
+}
+
+.footerColumn li{
+    margin-bottom:10px;
+}
+
+.footerColumn a{
+    text-decoration:none;
+    color: black;
+}
+
+.footerColumn a:hover{
+    text-decoration:underline;
+}
+
+/* FLASHCARD BOX */
+
+.flashcardBox p{
+    margin-bottom:20px;
+}
+
+.playButton{
+    display:inline-block;
+    background:#ffc107;
+    color: white;
+    padding:12px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* BOTTOM SECTION */
+
+.footerBottom{
+    background:#112D4E;
+    color:white;
+    padding:30px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footerText{
+    max-width:400px;
+}
+
+.copyright{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.socialIcons a{
+    margin-right:15px;
+    font-size:24px;
+    text-decoration:none;
+}
