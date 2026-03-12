@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px 100px;
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.navLinks {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+  transition: all 0.25s ease;
+}
+
+/* hover underline effect */
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #ffc107;
+  transition: width 0.25s ease;
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+/* active page */
+.navLinks a.active {
+  color: #ffc107;
+}

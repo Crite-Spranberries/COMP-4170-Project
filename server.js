@@ -17,24 +17,34 @@ db.connect();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-/* Home Page */
+/* Landing Page */
 app.get("/", (req, res) => {
-  res.render("landing.ejs");
+  res.render("landing.ejs", { currentPath: "/" });
 });
 
 /* Login Page */
 app.get("/login", (req, res) => {
-  res.render("login.ejs", { error: null });
+  res.render("login.ejs", { error: null, currentPath: "/login" });
 });
 
 /* Register Page */
 app.get("/register", (req, res) => {
-  res.render("register.ejs", { error: null });
+  res.render("register.ejs", { error: null, currentPath: "/register" });
 });
 
 /* Home Page (after login/register) */
 app.get("/home", (req, res) => {
-  res.render("home.ejs");
+  res.render("home.ejs", { currentPath: "/home" });
+});
+
+/* Flashcard Sets Page */
+app.get("/sets", (req, res) => {
+  res.render("sets.ejs", { currentPath: "/sets" });
+});
+
+/* Individual Cards Page */
+app.get("/cards", (req, res) => {
+  res.render("cards.ejs", { currentPath: "/cards" });
 });
 
 /* REGISTER USER */
@@ -51,9 +61,9 @@ app.post("/register", async (req, res) => {
 
     if (checkUser.rows.length > 0) {
 
-      // SHOW ERROR ON SAME PAGE
       res.render("register.ejs", {
-        error: "Email already exists. Try logging in."
+        error: "Email already exists. Try logging in.",
+        currentPath: "/register"
       });
 
     } else {
@@ -70,7 +80,8 @@ app.post("/register", async (req, res) => {
     console.log(err);
 
     res.render("register.ejs", {
-      error: "Something went wrong. Please try again."
+      error: "Something went wrong. Please try again.",
+      currentPath: "/register"
     });
   }
 });
@@ -99,7 +110,8 @@ app.post("/login", async (req, res) => {
       } else {
 
         res.render("login.ejs", {
-          error: "Incorrect Password"
+          error: "Incorrect Password",
+          currentPath: "/login"
         });
 
       }
@@ -107,7 +119,8 @@ app.post("/login", async (req, res) => {
     } else {
 
       res.render("login.ejs", {
-        error: "User not found"
+        error: "User not found",
+        currentPath: "/login"
       });
 
     }
@@ -116,11 +129,12 @@ app.post("/login", async (req, res) => {
     console.log(err);
 
     res.render("login.ejs", {
-      error: "Something went wrong."
+      error: "Something went wrong.",
+      currentPath: "/login"
     });
   }
 });
-
+``
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

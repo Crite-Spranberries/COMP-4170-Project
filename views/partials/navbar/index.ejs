@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/styles/navbar.module.css">
+
+<nav class="navbar">
+
+
+  <ul class="navLinks">
+
+    <% const items = ["Home", "Sets", "Cards"]; %>
+
+    <% items.forEach(function(item){ 
+        const path = item === "Home" ? "/" : "/" + item.toLowerCase();
+        const isActive = currentPath === path;
+    %>
+
+      <li>
+        <a href="<%= path %>" class="<%= isActive ? 'active' : '' %>">
+          <%= item %>
+        </a>
+      </li>
+
+    <% }) %>
+
+  </ul>
+
+</nav>

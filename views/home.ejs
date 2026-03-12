@@ -1,7 +1,35 @@
-  <div class="jumbotron text-center">
-    <div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Little Cards</title>
+<link rel="stylesheet" href="/styles/home.module.css">
+</head>
 
-      <p class="secret-text"> A secret of life is to embrace change.</p>
+<body>
 
-    </div>
+<%- include("partials/navbar/index", { currentPath: currentPath }) %>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>
+      A New Way <br>
+      to <span>Embrace Knowledge</span>
+    </h1>
+
+    <p>
+      Perfect for exams, language skills, or professional growth,
+      Little Cards adapts to your pace making learning both fun
+      and effective.
+    </p>
+
+    <a href="/register" class="hero-btn">Learn Now</a>
   </div>
+
+  <div class="hero-image">
+    <img src="/images/flashcards.svg" alt="Flashcard Illustration">
+  </div>
+</section>
+
+</body>
+</html>
