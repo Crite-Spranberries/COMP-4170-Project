@@ -1,6 +1,5 @@
 :root {
   --lato: 'lato', sans-serif;
-
   --h1: 36px;
   --h2: 32px;
   --h3: 28px;
@@ -8,10 +7,12 @@
   --h5: 20px;
   --h6: 18px;
   --body: 16px;
-
-  /* white #F9F7F7
-  yellow #ffc107
-  light blue #DBE2EF
-  blue #3F72AF
-  dark blue #112D4E */
+  --orange: #FF9B00;
+  --white: #FFFFFF;
+  --black: #000000;
+  --darkyellow: #FFC900;
+  --yellow: #FFE100;
+  --cream: #EBE389
+ 
 }
+

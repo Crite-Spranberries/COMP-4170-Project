@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center; /* keeps nav links centered */
   align-items: center;
   padding: 30px 100px;
   background: transparent;
@@ -8,6 +8,17 @@
   width: 100%;
   top: 0;
   left: 0;
+}
+
+
+.logo {
+  position: absolute;
+  left: 40px;
+}
+
+.logo img {
+  height: 100px;
+  width: auto;
 }
 
 .navLinks {
@@ -34,7 +45,7 @@
   bottom: -3px;
   width: 0%;
   height: 2px;
-  background: #ffc107;
+  background: purple;
   transition: width 0.25s ease;
 }
 
@@ -44,5 +55,5 @@
 
 /* active page */
 .navLinks a.active {
-  color: #ffc107;
+  color: purple;
 }
