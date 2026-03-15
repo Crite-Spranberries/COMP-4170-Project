@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flashcard Sets</title>
+
+<link rel="stylesheet" href="/styles/index.css">
+<link rel="stylesheet" href="/styles/sets.module.css">
+
+</head>
+<body>
+
+<%- include("partials/navbar/index", { currentPath: currentPath }) %>
+
+<div class="sets-page">
+
+  <div class="sets-container">
+
+    <% sets.forEach((set) => { %>
+
+      <div class="set-card" style="background:<%= set.color %>">
+
+        <div class="set-header">
+          <p class="set-topic"><%= set.topic %></p>
+        </div>
+
+        <div class="set-body">
+
+          <h2 class="set-title"><%= set.title %></h2>
+
+          <p class="set-count">
+            <%= set.cards %> cards in deck
+          </p>
+
+          <div class="set-actions">
+
+            <a href="/cards?set=<%= set.id %>" class="study-btn">
+              Study
+            </a>
+
+            <button 
+              class="edit-btn"
+              onclick="editSet(<%= set.id %>)">
+              Edit Deck
+            </button>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    <% }) %>
+
+  </div>
+
+  <div class="create-panel">
+
+    <h2>Custom Card Set</h2>
+    <p>Create a custom study set</p>
+
+    <button onclick="openCreate()" class="create-btn">
+      Create New
+    </button>
+
+  </div>
+
+</div>
+
+<div id="createModal" class="modal" style="display:none;">
+
+  <div class="modal-card">
+
+    <h3>Create New Set</h3>
+
+    <input 
+      type="text"
+      id="newTitle"
+      placeholder="Set Title"
+    >
+
+    <input
+      type="color"
+      id="newColor"
+      value="#FF9B00"
+    >
+
+    <button onclick="createSet()">
+      Create
+    </button>
+
+  </div>
+
+</div>
+
+<script src="/scripts/sets.js"></script>
+</body>
+</html>

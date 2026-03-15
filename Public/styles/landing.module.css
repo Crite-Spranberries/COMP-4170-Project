@@ -1,8 +1,16 @@
+:root{
+  --orange: #FF9B00;
+  --darkyellow: #FFC900;
+  --yellow: #FFE100;
+  --cream: #EBE389;
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
 body{
   margin:0;
   font-family: var(--lato);
 }
-
 
 .landing-wrapper{
   height:100vh;
@@ -10,13 +18,13 @@ body{
   justify-content:center;
   align-items:center;
 
-  background: #3F72AF
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
 }
 
 .landing-card{
   text-align:center;
 
-  background:white;
+  background:var(--white);
   padding:60px 80px;
 
   border-radius:16px;
@@ -27,7 +35,7 @@ body{
 }
 
 .key-icon{
-  color:#4a6cff;
+  color:var(--orange);
   margin-bottom:20px;
 }
 
@@ -35,10 +43,11 @@ body{
   font-size:38px;
   font-weight:700;
   margin-bottom:10px;
+  color:var(--black);
 }
 
 .subtitle{
-  color:#666;
+  color:#555;
   margin-bottom:30px;
 }
 
@@ -51,8 +60,8 @@ body{
 /* Primary button */
 
 .btn-primary{
-  background: #112D4E;
-  color:white;
+  background: var(--orange);
+  color:var(--white);
 
   padding:12px 32px;
   border-radius:8px;
@@ -63,6 +72,7 @@ body{
 }
 
 .btn-primary:hover{
+  background:var(--darkyellow);
   transform:translateY(-2px);
   box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
@@ -70,7 +80,8 @@ body{
 /* Secondary button */
 
 .btn-secondary{
-  border:2px solid;
+  border:2px solid var(--orange);
+  color:var(--orange);
 
   padding:12px 32px;
   border-radius:8px;
@@ -81,6 +92,6 @@ body{
 }
 
 .btn-secondary:hover{
-  background: #112D4E;
-  color:white;
+  background:var(--orange);
+  color:var(--white);
 }

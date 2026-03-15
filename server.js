@@ -15,39 +15,100 @@ const db = new pg.Client({
 db.connect();
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static("public"));
 
-/* Landing Page */
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
   res.render("landing.ejs", { currentPath: "/" });
 });
 
-/* Login Page */
 app.get("/login", (req, res) => {
   res.render("login.ejs", { error: null, currentPath: "/login" });
 });
 
-/* Register Page */
 app.get("/register", (req, res) => {
   res.render("register.ejs", { error: null, currentPath: "/register" });
 });
 
-/* Home Page (after login/register) */
 app.get("/home", (req, res) => {
   res.render("home.ejs", { currentPath: "/home" });
 });
 
-/* Flashcard Sets Page */
-app.get("/sets", (req, res) => {
-  res.render("sets.ejs", { currentPath: "/sets" });
+
+/* =============================
+   GET SETS FROM DATABASE
+============================= */
+
+app.get("/sets", async (req, res) => {
+
+  try {
+
+    const result = await db.query("SELECT * FROM sets ORDER BY id");
+
+    res.render("sets.ejs", {
+      sets: result.rows,
+      currentPath: "/sets"
+    });
+
+  } catch (err) {
+    console.log(err);
+    res.send("Database error");
+  }
+
 });
 
-/* Individual Cards Page */
+app.post("/sets/create", async (req, res) => {
+
+  const { title, color } = req.body;
+
+  try {
+
+    await db.query(
+      "INSERT INTO sets (topic, title, cards, color) VALUES ($1,$2,$3,$4)",
+      ["Custom Set", title, 0, color]
+    );
+
+    res.json({ success: true });
+
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false });
+  }
+
+});
+
+app.post("/sets/edit", async (req, res) => {
+
+  const { id, title, color } = req.body;
+
+  try {
+
+    await db.query(
+      "UPDATE sets SET title=$1, color=$2 WHERE id=$3",
+      [title, color, id]
+    );
+
+    res.json({ success: true });
+
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false });
+  }
+
+});
+
+
 app.get("/cards", (req, res) => {
   res.render("cards.ejs", { currentPath: "/cards" });
 });
 
-/* REGISTER USER */
+
+/* =============================
+   REGISTER
+============================= */
+
 app.post("/register", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -77,16 +138,22 @@ app.post("/register", async (req, res) => {
     }
 
   } catch (err) {
+
     console.log(err);
 
     res.render("register.ejs", {
       error: "Something went wrong. Please try again.",
       currentPath: "/register"
     });
+
   }
 });
 
-/* LOGIN USER */
+
+/* =============================
+   LOGIN
+============================= */
+
 app.post("/login", async (req, res) => {
 
   const email = req.body.email;
@@ -126,15 +193,19 @@ app.post("/login", async (req, res) => {
     }
 
   } catch (err) {
+
     console.log(err);
 
     res.render("login.ejs", {
       error: "Something went wrong.",
       currentPath: "/login"
     });
+
   }
+
 });
-``
+
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
