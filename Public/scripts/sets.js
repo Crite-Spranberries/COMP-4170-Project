@@ -26,7 +26,6 @@ async function createSet(){
   location.reload();
 }
 
-
 async function editSet(id){
 
   const newTitle = prompt("New title:");
@@ -47,4 +46,26 @@ async function editSet(id){
   });
 
   location.reload();
+}
+
+async function deleteSet(id){
+
+  const confirmDelete = confirm("Are you sure you want to delete this set?");
+  if(!confirmDelete) return;
+
+  const res = await fetch("/sets/delete",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify({ id })
+  });
+
+  const data = await res.json();
+
+  if(data.success){
+    location.reload();
+  }else{
+    alert("Delete failed");
+  }
 }

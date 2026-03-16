@@ -37,10 +37,7 @@ app.get("/home", (req, res) => {
 });
 
 
-/* =============================
-   GET SETS FROM DATABASE
-============================= */
-
+// GET SETS PAGE
 app.get("/sets", async (req, res) => {
 
   try {
@@ -59,6 +56,8 @@ app.get("/sets", async (req, res) => {
 
 });
 
+
+// CREATE SET
 app.post("/sets/create", async (req, res) => {
 
   const { title, color } = req.body;
@@ -73,8 +72,10 @@ app.post("/sets/create", async (req, res) => {
     res.json({ success: true });
 
   } catch (err) {
+
     console.log(err);
     res.json({ success: false });
+
   }
 
 });
@@ -93,8 +94,36 @@ app.post("/sets/edit", async (req, res) => {
     res.json({ success: true });
 
   } catch (err) {
+
     console.log(err);
     res.json({ success: false });
+
+  }
+
+});
+
+app.post("/sets/delete", async (req, res) => {
+
+  const { id } = req.body;
+
+  console.log("Deleting set id:", id);
+
+  try {
+
+    const result = await db.query(
+      "DELETE FROM sets WHERE id=$1",
+      [id]
+    );
+
+    console.log("Rows deleted:", result.rowCount);
+
+    res.json({ success: true });
+
+  } catch (err) {
+
+    console.log(err);
+    res.json({ success: false });
+
   }
 
 });
@@ -104,12 +133,8 @@ app.get("/cards", (req, res) => {
   res.render("cards.ejs", { currentPath: "/cards" });
 });
 
-
-/* =============================
-   REGISTER
-============================= */
-
 app.post("/register", async (req, res) => {
+
   const email = req.body.email;
   const password = req.body.password;
 
@@ -135,6 +160,7 @@ app.post("/register", async (req, res) => {
       );
 
       res.redirect("/home");
+
     }
 
   } catch (err) {
@@ -147,13 +173,11 @@ app.post("/register", async (req, res) => {
     });
 
   }
+
 });
 
 
-/* =============================
-   LOGIN
-============================= */
-
+// LOGIN
 app.post("/login", async (req, res) => {
 
   const email = req.body.email;

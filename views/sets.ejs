@@ -44,6 +44,11 @@
               Edit Deck
             </button>
 
+            <button 
+              class="delete-btn"
+              onclick="deleteSet(<%= set.id %>)">
+              Delete
+            </button>
 
           </div>
 
@@ -54,6 +59,7 @@
     <% }) %>
 
   </div>
+
 
   <div class="create-panel">
 
@@ -67,6 +73,7 @@
   </div>
 
 </div>
+
 
 <div id="createModal" class="modal" style="display:none;">
 
@@ -94,6 +101,8 @@
 
 </div>
 
+
 <script src="/scripts/sets.js"></script>
+
 </body>
 </html>
