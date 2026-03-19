@@ -1,105 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Flashcard Decks</title>
 
-<link rel="stylesheet" href="/styles/index.css">
-<link rel="stylesheet" href="/styles/sets.module.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Flashcard Decks</title>
+
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/sets.module.css">
 
 </head>
+
 <body>
 
-<%- include("partials/navbar/index", { currentPath: currentPath, useBlueLogo: true }) %>
+  <%- include("partials/navbar/index", { currentPath: currentPath, useBlueLogo: true }) %>
 
-<div class="sets-page">
-  <div class="sets-toolbar">
-    <button onclick="openCreate()" class="create-btn">
-      Add New Deck
-    </button>
-  </div>
+    <div class="sets-page">
+      <div class="sets-toolbar">
+        <button onclick="openCreate()" class="create-btn">
+          Add New Deck
+        </button>
+      </div>
 
-  <div class="sets-container">
+      <div class="sets-container">
 
-    <% sets.forEach((set) => { %>
+        <% sets.forEach((set)=> { %>
 
-      <div class="set-card" style="background:<%= set.color %>;">
+          <div class="set-card">
 
-        <div class="set-header">
-          <p class="set-topic"><%= set.topic %></p>
-          <div class="set-top-actions">
-            <a href="/decks/<%= set.id %>" class="edit-btn">
-              Edit Deck
-            </a>
-            <button
-              class="delete-btn"
-              onclick="deleteSet(<%= set.id %>)">
-              Delete
-            </button>
+            <div class="set-header">
+              <p class="set-topic">
+                <%= set.topic %>
+              </p>
+              <div class="set-top-actions">
+                <a href="/decks/<%= set.id %>" class="edit-btn" aria-label="Edit deck">
+                  <img src="/images/Edit%204.svg" alt="" class="edit-icon" aria-hidden="true">
+                </a>
+                <button class="delete-btn" data-id="<%= set.id %>" onclick="deleteSet(this.dataset.id)" aria-label="Delete deck">
+                  <img src="/images/Trash.svg" alt="" class="delete-icon" aria-hidden="true">
+                </button>
+              </div>
+            </div>
+
+            <div class="set-body">
+
+              <h2 class="set-title">
+                <%= set.title %>
+              </h2>
+
+              <p class="set-count">
+                <%= set.cards %> card(s) in deck
+              </p>
+
+              <div class="set-actions">
+
+                <a href="/decks/<%= set.id %>/study" class="study-btn">
+                  Test
+                </a>
+
+                <span class="action-separator" aria-hidden="true">|</span>
+
+                <a href="/decks/<%= set.id %>/preview" class="study-btn preview-btn">
+                  Preview
+                </a>
+
+              </div>
+
+            </div>
+
           </div>
-        </div>
 
-        <div class="set-body">
-
-          <h2 class="set-title"><%= set.title %></h2>
-
-          <p class="set-count">
-            <%= set.cards %> card(s) in deck
-          </p>
-
-          <div class="set-actions">
-
-            <a href="/decks/<%= set.id %>/study" class="study-btn">
-              Test
-            </a>
-
-            <span class="action-separator" aria-hidden="true">|</span>
-
-            <a href="/decks/<%= set.id %>/preview" class="study-btn preview-btn">
-              Preview
-            </a>
-
-          </div>
-
-        </div>
+          <% }) %>
 
       </div>
 
-    <% }) %>
-
-  </div>
-
-</div>
+    </div>
 
 
-<div id="createModal" class="modal" style="display:none;">
+    <div id="createModal" class="modal" style="display:none;">
 
-  <div class="modal-card">
+      <div class="modal-card">
 
-    <h3>Create New Deck</h3>
+        <h3>Create New Deck</h3>
 
-    <input 
-      type="text"
-      id="newTitle"
-      placeholder="Deck Title"
-    >
+        <input type="text" id="newTitle" placeholder="Deck Title">
 
-    <input
-      type="color"
-      id="newColor"
-      value="#FF9B00"
-    >
+        <input type="color" id="newColor" value="#FF9B00">
 
-    <button onclick="createSet()">
-      Create
-    </button>
+        <button onclick="createSet()">
+          Create
+        </button>
 
-  </div>
+      </div>
 
-</div>
+    </div>
 
 
-<script src="/scripts/sets.js"></script>
+    <script src="/scripts/sets.js"></script>
 
 </body>
+
 </html>

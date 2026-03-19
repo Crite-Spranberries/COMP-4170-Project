@@ -146,7 +146,7 @@ async function toggleCardEdit(buttonEl) {
   backInputEl.classList.add("is-hidden");
   frontTextEl.classList.remove("is-hidden");
   backTextEl.classList.remove("is-hidden");
-  buttonEl.textContent = "Edit";
+  buttonEl.innerHTML = '<img src="/images/Edit%204.svg" alt="" class="card-action-icon" aria-hidden="true">';
   buttonEl.dataset.editing = "false";
 }
 

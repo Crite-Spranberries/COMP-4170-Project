@@ -30,6 +30,7 @@ body {
 
 .set-card {
   border-radius: var(--radius-sm);
+  background-color: var(--color-blue);
   color: var(--color-white);
   display: flex;
   flex-direction: column;
@@ -72,6 +73,33 @@ body {
 
 .set-top-actions .delete-btn {
   background: var(--surface-danger-soft);
+  padding: 6px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.set-top-actions .edit-btn {
+  padding: 6px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.delete-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
 .set-title {

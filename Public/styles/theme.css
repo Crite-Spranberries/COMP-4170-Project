@@ -58,8 +58,8 @@
 
   /* Gradients */
   --gradient-page: linear-gradient(135deg, #E0EFFF, #FFFAEB);
-  --gradient-card-front: linear-gradient(145deg, #fff4c4 0%, #ebe389 100%);
-  --gradient-card-back: linear-gradient(145deg, #fff1b0 0%, #e3d873 100%);
+  --gradient-card-front: linear-gradient(145deg, #FFFAEB 0%, #A3C5EB 100%);
+  --gradient-card-back: linear-gradient(145deg, #A3C5EB 0%, #FFFAEB 100%);
 
   /* Motion */
   --transition-fast: 0.25s ease;

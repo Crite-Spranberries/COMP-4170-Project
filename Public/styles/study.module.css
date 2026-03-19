@@ -3,7 +3,7 @@ body {
   margin: 0;
   font-family: var(--font-primary);
   background: var(--gradient-page);
-  color: var(--white);
+  color: var(--color-blue);
 }
 
 .study-page {
@@ -70,7 +70,7 @@ body {
 .progress-fill {
   height: 100%;
   width: 0%;
-  background: var(--color-purple);
+  background: var(--color-blue);
   transition: width 0.25s ease;
 }
 
@@ -123,7 +123,7 @@ body {
 }
 
 .btn-back {
-  background: var(--surface-glass-strong);
+  background: var(--color-light-blue);
 }
 
 .is-hidden {
@@ -169,7 +169,7 @@ body {
 }
 
 .btn-start {
-  background: var(--color-purple);
+  background: var(--color-blue);
 }
 
 .study-empty {
@@ -362,7 +362,7 @@ body {
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.15);
-  color: white;
+  color: var(--color-blue);
   font-size: 16px;
   resize: vertical;
   margin-bottom: 12px;
@@ -370,7 +370,7 @@ body {
 }
 
 .answer-input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-blue);
 }
 
 .answer-input:focus {
@@ -385,7 +385,7 @@ body {
 
 .btn-check,
 .btn-next {
-  background: var(--color-purple);
+  background: var(--color-blue);
   color: var(--color-white);
 }
 
@@ -408,13 +408,13 @@ body {
 }
 
 .btn-flip {
-  background: var(--color-purple);
+  background: var(--color-blue);
   color: var(--color-white);
   min-width: 120px;
 }
 
 .btn-arrow {
-  background: var(--surface-glass-strong);
+  background: var(--color-blue);
   width: 42px;
   height: 42px;
   border-radius: 999px;
@@ -436,7 +436,7 @@ body {
 }
 
 .btn-nav-side {
-  background: var(--surface-glass-strong);
+  background: var(--color-blue);
   width: 44px;
   height: 44px;
   border-radius: var(--radius-pill);
@@ -465,26 +465,58 @@ body {
 }
 
 @keyframes cardBounceY {
-  0% { transform: translateY(0); }
-  25% { transform: translateY(-14px); }
-  45% { transform: translateY(0); }
-  65% { transform: translateY(-7px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-14px);
+  }
+
+  45% {
+    transform: translateY(0);
+  }
+
+  65% {
+    transform: translateY(-7px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes cardShakeX {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-12px); }
-  40% { transform: translateX(10px); }
-  60% { transform: translateX(-8px); }
-  80% { transform: translateX(6px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-12px);
+  }
+
+  40% {
+    transform: translateX(10px);
+  }
+
+  60% {
+    transform: translateX(-8px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: 640px) {
   .study-page {
     padding-top: 100px;
   }
+
   .study-header,
   .test-progress-header,
   .intro-screen,
@@ -494,6 +526,7 @@ body {
     margin-left: 16px;
     margin-right: 16px;
   }
+
   .flashcard-content {
     padding: 20px 18px;
     font-size: 16px;
