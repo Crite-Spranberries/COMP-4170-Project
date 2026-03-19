@@ -8,7 +8,7 @@ const db = new pg.Client({
   user: "postgres",
   host: "localhost",
   database: "auth",
-  password: "123",
+  password: "$chOOl22",
   port: 5432,
 });
 
@@ -167,8 +167,15 @@ app.post("/register", async (req, res) => {
 
     console.log(err);
 
+    let errorMessage = "Something went wrong. Please try again.";
+    // If `users.id` is NOT NULL but has no default/identity, the INSERT will try to write NULL for id.
+    if (err && err.code === "23502" && err.column === "id") {
+      errorMessage =
+        "Registration failed: `users.id` must be auto-generated (set it to SERIAL/IDENTITY).";
+    }
+
     res.render("register.ejs", {
-      error: "Something went wrong. Please try again.",
+      error: errorMessage,
       currentPath: "/register"
     });
 
