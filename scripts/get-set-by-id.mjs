@@ -1,14 +1,8 @@
-import { Client } from "pg";
+import { createDbClient } from "../db/client.js";
 
 const id = Number(process.argv[2]);
 
-const db = new Client({
-  user: "postgres",
-  host: "localhost",
-  database: "auth",
-  password: "$chOOl22",
-  port: 5432,
-});
+const db = createDbClient();
 
 await db.connect();
 const res = await db.query("SELECT id, topic, title, color FROM public.sets WHERE id = $1", [id]);

@@ -99,7 +99,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  font-size: 14px;
+  font-size: 18px;
   margin-top: auto;
   padding-top: 10px;
 }
@@ -109,9 +109,15 @@ body {
   background: none;
   border: none;
   color: var(--color-white);
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.set-actions a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
 }
 
 .action-separator {

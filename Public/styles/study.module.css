@@ -22,16 +22,34 @@ body {
 }
 
 .test-header-row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   margin-bottom: 8px;
+  column-gap: 10px;
+}
+
+.test-header-row .btn-back {
+  justify-self: start;
+  width: auto;
 }
 
 .mode-tag {
+  justify-self: end;
   font-size: 13px;
   font-weight: 700;
   opacity: 0.95;
+}
+
+.header-deck-title {
+  justify-self: center;
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  font-size: 14px;
+  opacity: 0.98;
 }
 
 .test-counter {
@@ -203,6 +221,13 @@ body {
 /* Flashcard component */
 .study-area {
   margin: 0 24px;
+}
+
+.card-nav-layout {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
 }
 
 .flashcard-wrapper {
@@ -410,6 +435,21 @@ body {
   background: var(--surface-glass-strong);
 }
 
+.btn-nav-side {
+  background: var(--surface-glass-strong);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  padding: 0;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.btn-nav-side:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .btn-nav:disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -421,7 +461,7 @@ body {
 }
 
 .preview-counter-only {
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 @keyframes cardBounceY {

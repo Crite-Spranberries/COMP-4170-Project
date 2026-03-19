@@ -14,7 +14,15 @@ Express Full stack aplication
 ```
 npm install
 ```
-2. Start the app
+
+2. Create a local `.env` file (copy from `.env.example`) and set your local PostgreSQL values.
+
+3. Set up / normalize database tables
+```
+npm run db:setup
+```
+
+4. Start the app
 ```
 npm run dev
 ```

@@ -36,7 +36,6 @@
 
   const answerInput = document.getElementById("answerInput");
   const btnCheck = document.getElementById("btnCheck");
-  const btnNext = document.getElementById("btnNext");
   const btnFlip = document.getElementById("btnFlip");
 
   function normalize(s) {
@@ -120,11 +119,16 @@
     setFlipped(false);
     renderCard();
     if (btnPrev) btnPrev.disabled = index === 0;
-    if (btnNextCard) btnNextCard.disabled = index === cards.length - 1;
+    if (btnNextCard) {
+      if (mode === "study") {
+        btnNextCard.disabled = true;
+      } else {
+        btnNextCard.disabled = index === cards.length - 1;
+      }
+    }
     if (mode === "study") {
       if (answerInput) answerInput.value = "";
       if (btnCheck) btnCheck.disabled = false;
-      if (btnNext) btnNext.disabled = true;
     }
   }
 
@@ -149,13 +153,14 @@
     }
     answered = true;
     if (btnCheck) btnCheck.disabled = true;
-    if (btnNext) btnNext.disabled = false;
+    if (btnNextCard) btnNextCard.disabled = false;
     setFlipped(true);
     scheduleResultAnimationAfterFlip(isCorrect);
   }
 
   // Study: move to next card after checking
   function studyNext() {
+    if (!answered) return;
     if (index < cards.length - 1) {
       goToCard(index + 1);
     } else {
@@ -168,11 +173,18 @@
 
   // Study: check and next
   if (btnCheck) btnCheck.addEventListener("click", checkAnswer);
-  if (btnNext) btnNext.addEventListener("click", studyNext);
 
   // Prev / Next card
   if (btnPrev) btnPrev.addEventListener("click", function () { goToCard(index - 1); });
-  if (btnNextCard) btnNextCard.addEventListener("click", function () { goToCard(index + 1); });
+  if (btnNextCard) {
+    btnNextCard.addEventListener("click", function () {
+      if (mode === "study") {
+        studyNext();
+      } else {
+        goToCard(index + 1);
+      }
+    });
+  }
 
   // Study: Enter to check
   if (mode === "study" && answerInput) {

@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "node server.js",
+    "db:setup": "node scripts/setup-db.mjs",
+    "db:fix-users-id": "node scripts/fix-users-id-identity.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/Crite-Spranberries/COMP-4170-Project#readme",
   "dependencies": {
+    "dotenv": "^17.3.1",
     "ejs": "^5.0.1",
     "express": "^5.2.1",
     "pg": "^8.20.0"

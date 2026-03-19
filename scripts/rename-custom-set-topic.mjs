@@ -1,12 +1,6 @@
-import { Client } from "pg";
+import { createDbClient } from "../db/client.js";
 
-const db = new Client({
-  user: "postgres",
-  host: "localhost",
-  database: "auth",
-  password: "$chOOl22",
-  port: 5432,
-});
+const db = createDbClient();
 
 await db.connect();
 const result = await db.query(

@@ -1,17 +1,11 @@
 import express from "express";
-import pg from "pg";
+import { createDbClient } from "./db/client.js";
 
 const app = express();
 const port = 3000;
 const FLASHCARD_SIDE_MAX_CHARS = 120;
 
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "auth",
-  password: "$chOOl22",
-  port: 5432,
-});
+const db = createDbClient();
 
 db.connect();
 
