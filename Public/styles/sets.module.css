@@ -30,6 +30,7 @@ body {
 
 .set-card {
   border-radius: var(--radius-sm);
+  background-color: var(--color-blue);
   color: var(--color-white);
   display: flex;
   flex-direction: column;
@@ -72,6 +73,33 @@ body {
 
 .set-top-actions .delete-btn {
   background: var(--surface-danger-soft);
+  padding: 6px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.set-top-actions .edit-btn {
+  padding: 6px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+
+.delete-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
 }
 
 .set-title {
@@ -126,16 +154,17 @@ body {
 }
 
 .create-btn {
-  background: var(--color-orange);
+  background: var(--color-blue);
   border: none;
   color: var(--color-white);
-  padding: 12px 24px;
+  padding: 20px 30px;
   border-radius: var(--radius-pill);
   font-weight: 700;
   font-size: 14px;
   box-shadow: var(--shadow-soft);
   cursor: pointer;
 }
+
 .modal {
   position: fixed;
 
@@ -168,7 +197,7 @@ body {
 
 .modal-card h3 {
   margin: 0;
-  color: var(--color-white);
+  color: var(--color-soft-blue);
   text-align: center;
 }
 
@@ -196,5 +225,6 @@ body {
 }
 
 .modal-card button:hover {
-  background: #5d1f8f;
+  background: var(--color-soft-blue);
+  color: var(--color-blue);
 }

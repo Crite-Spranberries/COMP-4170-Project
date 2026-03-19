@@ -2,9 +2,10 @@
 
 .navbar {
   display: flex;
-  justify-content: center; /* keeps nav links centered */
+  justify-content: center;
+  /* keeps nav links centered */
   align-items: center;
-  padding: 30px 100px;
+  padding: 50px 100px;
   background: transparent;
   position: absolute;
   width: 100%;
@@ -40,7 +41,7 @@
 
 .navLinks a {
   text-decoration: none;
-  color: var(--color-white);
+  color: var(--color-blue);
   font-size: 18px;
   font-weight: 500;
   position: relative;
@@ -56,7 +57,7 @@
   bottom: -3px;
   width: 0%;
   height: 2px;
-  background: var(--color-purple);
+  background: var(--color-blue);
   transition: width 0.25s ease;
 }
 
@@ -66,5 +67,5 @@
 
 /* active page */
 .navLinks a.active {
-  color: var(--color-purple);
+  color: var(--color-blue);
 }

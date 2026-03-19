@@ -1,164 +1,166 @@
-:root{
+:root {
   --orange: var(--color-orange);
   --white: var(--color-white);
   --black: var(--color-black);
 }
 
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: var(--font-primary);
-  background:var(--gradient-page);
+  background: var(--gradient-page);
   color: var(--white);
 }
 
-.deck-page{
+.deck-page {
   padding-top: 120px;
 }
 
-.deck-header{
+.deck-header {
   margin: 0 40px;
   border-radius: var(--radius-lg);
   padding: 26px 26px;
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 20px;
-  box-shadow:var(--shadow-card);
+  box-shadow: var(--shadow-card);
 }
 
-.deck-topic{
-  margin:0;
+.deck-topic {
+  margin: 0;
   opacity: 0.9;
   font-size: 14px;
 }
 
-.deck-title{
+.deck-title {
   margin: 8px 0 6px;
   font-size: 34px;
 }
 
-.is-hidden{
-  display:none !important;
+.is-hidden {
+  display: none !important;
 }
 
-.inline-title-input{
+.inline-title-input {
   width: min(100%, 360px);
   padding: 8px 10px;
   border-radius: var(--radius-sm);
-  border: 2px solid rgba(255,255,255,0.5);
-  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
   color: var(--color-white);
   font-size: 28px;
   font-weight: 700;
   outline: none;
 }
 
-.deck-meta{
+.deck-meta {
   margin: 0;
   opacity: 0.9;
 }
 
-.deck-header-actions{
-  display:flex;
+.deck-header-actions {
+  display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-.btn{
-  appearance:none;
+.btn {
+  appearance: none;
   border: none;
   background: var(--color-purple);
   color: var(--color-white);
   font-weight: 700;
   padding: 10px 14px;
   border-radius: var(--radius-sm);
-  cursor:pointer;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn.btn-secondary{
+.btn.btn-secondary {
   background: var(--surface-glass-strong);
 }
 
-.deck-content{
-  display:grid;
+.deck-content {
+  display: grid;
   grid-template-columns: 360px 1fr;
   gap: 24px;
   padding: 24px 40px 40px;
 }
 
-.add-card, .cards-list{
-  background: var(--surface-glass);
+.add-card,
+.cards-list {
+  background: var(--color-blue);
   border-radius: var(--radius-lg);
   padding: 18px;
-  box-shadow:var(--shadow-card-light);
+  box-shadow: var(--shadow-card-light);
   backdrop-filter: blur(6px);
 }
 
-.cards-list{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.add-card h2, .cards-list h2{
+.add-card h2,
+.cards-list h2 {
   margin: 0 0 12px;
-  width:100%;
-  text-align:center;
+  width: 100%;
+  text-align: center;
 }
 
-.field-hint{
+.field-hint {
   margin: -2px 0 2px;
   font-size: 12px;
   opacity: 0.9;
 }
 
-.add-form{
-  display:flex;
-  flex-direction:column;
+.add-form {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
-textarea{
-  width: 100%;
+textarea {
+  width: 90%;
   min-height: 90px;
   resize: vertical;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.35);
-  background: rgba(255,255,255,0.12);
-  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-white);
   outline: none;
 }
 
-textarea::placeholder{
-  color: rgba(255,255,255,0.85);
+textarea::placeholder {
+  color: var(--color-white);
 }
 
-.empty{
+.empty {
   margin: 0;
   opacity: 0.9;
 }
 
-.card-row{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+.card-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
   padding: 12px 10px;
-  width:100%;
-  border-top: 1px solid rgba(255,255,255,0.25);
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.card-text{
+.card-text {
   position: relative;
   background: var(--gradient-card-front);
   color: #1b1b1b;
   border-radius: var(--radius-md);
-  border: 2px solid rgba(255,255,255,0.75);
+  border: 2px solid rgba(255, 255, 255, 0.75);
   box-shadow: var(--shadow-soft);
   padding: 34px 12px 12px;
   width: 190px;
@@ -171,7 +173,7 @@ textarea::placeholder{
   text-align: center;
 }
 
-.card-set-name{
+.card-set-name {
   position: absolute;
   top: 10px;
   left: 0;
@@ -179,7 +181,7 @@ textarea::placeholder{
   text-align: center;
   font-size: 10px;
   font-weight: 700;
-  color: rgba(27,27,27,0.45);
+  color: rgba(27, 27, 27, 0.45);
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 0 8px;
@@ -188,29 +190,29 @@ textarea::placeholder{
   text-overflow: ellipsis;
 }
 
-.card-front{
+.card-front {
   font-weight: 800;
   white-space: pre-wrap;
   word-break: break-word;
   width: 100%;
 }
 
-.card-back{
+.card-back {
   opacity: 0.88;
   white-space: pre-wrap;
   word-break: break-word;
   width: 100%;
   padding-top: 8px;
-  border-top: 1px solid rgba(27,27,27,0.16);
+  border-top: 1px solid rgba(27, 27, 27, 0.16);
 }
 
-.inline-editor{
+.inline-editor {
   width: 100%;
   min-height: 64px;
   resize: vertical;
   border-radius: 8px;
-  border: 1px solid rgba(27,27,27,0.28);
-  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(27, 27, 27, 0.28);
+  background: rgba(255, 255, 255, 0.7);
   color: #1b1b1b;
   padding: 8px;
   font-family: var(--font-primary);
@@ -218,14 +220,18 @@ textarea::placeholder{
   box-sizing: border-box;
 }
 
-.card-actions{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap: 10px;
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
 }
 
-.link{
+.card-actions form {
+  margin: 0;
+}
+
+.link {
   background: none;
   border: none;
   color: white;
@@ -235,19 +241,36 @@ textarea::placeholder{
   text-decoration: underline;
 }
 
-.link.danger{
+.icon-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+}
+
+.card-action-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.link.danger {
   color: #2b0a0a;
 }
 
-@media (max-width: 900px){
-  .deck-content{
+@media (max-width: 900px) {
+  .deck-content {
     grid-template-columns: 1fr;
   }
-  .deck-header{
+
+  .deck-header {
     margin: 0 16px;
   }
-  .deck-content{
+
+  .deck-content {
     padding: 18px 16px 28px;
   }
 }
-

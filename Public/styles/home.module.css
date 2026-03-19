@@ -1,99 +1,99 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-font-family: var(--lato);
+body {
+    font-family: var(--lato);
 }
 
-.hero{
+.hero {
 
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-padding:0 8%;
+    padding: 0 8%;
 
-background:linear-gradient(135deg,#ff9b00,#ffe100,#ebe389);
+    background: linear-gradient(135deg, #113B6D, #A3C5EB, #E0EFFF);
 
-color: var(--white);
+    color: var(--white);
 }
 
-.hero-content{
-max-width:520px;
+.hero-content {
+    max-width: 520px;
 }
 
-.hero-content h1{
+.hero-content h1 {
 
-font-size:70px;
-font-weight:700;
-line-height:1.2;
-margin-bottom:20px;
-
-}
-
-.hero-content span{
-
-color: purple;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
 
 }
 
-.hero-content p{
+.hero-content span {
 
-font-size:18px;
-opacity:.9;
-line-height:1.6;
-margin-bottom:40px;
+    color: #FFE58D;
+
+}
+
+.hero-content p {
+
+    font-size: 18px;
+    opacity: .9;
+    line-height: 1.6;
+    margin-bottom: 40px;
 
 }
 
 
-.hero-btn{
+.hero-btn {
 
-display:inline-block;
-background: purple;
-color: white;
+    display: inline-block;
+    background: #FFECAA;
+    color: #113B6D;
 
-padding:14px 40px;
+    padding: 14px 40px;
 
-border-radius:30px;
+    border-radius: 30px;
 
-font-weight:600;
+    font-weight: 600;
 
-text-decoration:none;
+    text-decoration: none;
 
-transition:.3s;
-
-}
-
-.hero-btn:hover{
-
-transform:translateY(-3px);
-box-shadow:0 10px 20px rgba(0,0,0,.2);
+    transition: .3s;
 
 }
 
-.hero-image img{
+.hero-btn:hover {
 
-width:650px;
-max-width:100%;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
 
 }
 
-@media (max-width:900px){
+.hero-image img {
 
-.hero{
-flex-direction:column;
-text-align:center;
-padding-top:80px;
+    width: 650px;
+    max-width: 100%;
+
 }
 
-.hero-image img{
-margin-top:40px;
-width:400px;
-}
+@media (max-width:900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 80px;
+    }
+
+    .hero-image img {
+        margin-top: 40px;
+        width: 400px;
+    }
 
 }

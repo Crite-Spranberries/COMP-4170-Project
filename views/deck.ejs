@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <%- include("partials/navbar/index", { currentPath: "/sets" }) %>
+  <%- include("partials/navbar/index", { currentPath: "/sets", useBlueLogo: true }) %>
 
   <main class="deck-page">
     <header class="deck-header" style="background:<%= set.color %>">
@@ -68,15 +68,18 @@
 
             <div class="card-actions">
               <button
-                class="link"
+                class="link icon-link"
                 data-set-id="<%= set.id %>"
                 data-card-id="<%= card.id %>"
                 data-editing="false"
-                onclick="toggleCardEdit(this)">
-                Edit
+                onclick="toggleCardEdit(this)"
+                aria-label="Edit card">
+                <img src="/images/Edit%204.svg" alt="" class="card-action-icon" aria-hidden="true">
               </button>
               <form method="POST" action="/decks/<%= set.id %>/flashcards/<%= card.id %>/delete">
-                <button class="link danger" type="submit">Delete</button>
+                <button class="link danger icon-link" type="submit" aria-label="Delete card">
+                  <img src="/images/Trash.svg" alt="" class="card-action-icon" aria-hidden="true">
+                </button>
               </form>
             </div>
           </div>

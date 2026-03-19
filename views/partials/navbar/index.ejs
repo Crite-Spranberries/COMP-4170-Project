@@ -1,32 +1,30 @@
 <link rel="stylesheet" href="/styles/navbar.module.css">
 
+<% const shouldUseBlueLogo = typeof useBlueLogo !== "undefined" && useBlueLogo; %>
+<% const logoSrc = shouldUseBlueLogo ? "/images/BlueLogo.png" : "/images/YellowLogo.png"; %>
+
 <nav class="navbar">
 
   <!-- LOGO -->
   <div class="logo">
     <a href="/home">
-      <img src="/images/Logo.png" alt="Logo">
+      <img src="<%= logoSrc %>" alt="Logo">
     </a>
   </div>
 
   <ul class="navLinks">
 
-    <% const items = [
-      {name:"Home", path:"/home"},
-      {name:"Decks", path:"/sets"}
-    ]; %>
+    <% const items=[ {name:"Home", path:"/home"}, {name:"Decks", path:"/sets"} ]; %>
 
-    <% items.forEach(function(item){ 
-        const isActive = currentPath === item.path;
-    %>
+      <% items.forEach(function(item){ const isActive=currentPath===item.path; %>
 
-      <li>
-        <a href="<%= item.path %>" class="<%= isActive ? 'active' : '' %>">
-          <%= item.name %>
-        </a>
-      </li>
+        <li>
+          <a href="<%= item.path %>" class="<%= isActive ? 'active' : '' %>">
+            <%= item.name %>
+          </a>
+        </li>
 
-    <% }) %>
+        <% }) %>
 
   </ul>
 
