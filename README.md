@@ -28,7 +28,7 @@ PGDATABASE=auth
 PGUSER=postgres
 PGPASSWORD=your_postgres_password
 
-3. Set up / normalize database tables
+3. Set up / normalize database tables (users, subjects, sets, flashcards)
 
 ```
 npm run db:setup
