@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= set.title %> - <%= mode === 'study' ? 'Study' : 'Preview' %></title>
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/study.module.css">
+</head>
+<body>
+  <%- include("partials/navbar/index", { currentPath: "/sets" }) %>
+
+  <main class="study-page">
+    <% if (mode === 'study' && flashcards.length > 0) { %>
+      <section id="studyHeader" class="test-progress-header is-hidden">
+        <div class="test-header-row">
+          <a href="/sets" class="btn btn-back">← Back to Decks</a>
+          <span class="mode-tag">Test Mode</span>
+        </div>
+        <p class="test-counter" id="cardCounter">1 / <%= flashcards.length %></p>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </section>
+    <% } else { %>
+      <header class="study-header" style="background:<%= set.color %>">
+        <div>
+          <h1 class="study-title"><%= set.title %></h1>
+          <p class="study-mode">Preview Mode</p>
+        </div>
+        <a href="/sets" class="btn btn-back">← Back to Decks</a>
+      </header>
+    <% } %>
+
+    <% if (flashcards.length === 0) { %>
+      <section class="study-empty">
+        <p>No cards in this deck yet. Add flashcards in the deck editor first.</p>
+        <a href="/decks/<%= set.id %>" class="btn">Edit deck</a>
+      </section>
+    <% } else { %>
+      <% if (mode === 'study') { %>
+        <section class="intro-screen" id="introScreen">
+          <h2 id="introDeckName" class="intro-item"><%= set.title %></h2>
+          <p id="introSubtext" class="intro-item">Get Ready</p>
+          <div class="countdown intro-item" id="countdownText"></div>
+        </section>
+      <% } %>
+
+      <section class="study-area <%= mode === 'study' ? 'is-hidden' : '' %>" id="studyArea" data-mode="<%= mode %>">
+        <div class="flashcard-wrapper">
+          <div class="flashcard" id="flashcard" data-flipped="false">
+            <div class="flashcard-inner">
+              <div class="flashcard-face flashcard-front">
+                <div class="flashcard-set-name"><%= set.title %></div>
+                <div class="flashcard-content" id="cardFront"></div>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <div class="flashcard-set-name"><%= set.title %></div>
+                <div class="flashcard-content" id="cardBack"></div>
+                <div class="flashcard-result" id="cardResult" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% if (mode === 'study') { %>
+          <div class="study-controls">
+            <label class="answer-label" for="answerInput">Your answer</label>
+            <textarea id="answerInput" class="answer-input" placeholder="Type your answer..." rows="3"></textarea>
+            <div class="study-buttons">
+              <button type="button" class="btn btn-check" id="btnCheck">Check</button>
+              <button type="button" class="btn btn-next" id="btnNext" disabled>Next</button>
+            </div>
+          </div>
+        <% } else { %>
+          <div class="preview-controls preview-arrows">
+            <button type="button" class="btn btn-arrow" id="btnPrev" disabled aria-label="Previous card">←</button>
+            <button type="button" class="btn btn-flip" id="btnFlip">Flip card</button>
+            <button type="button" class="btn btn-arrow" id="btnNextCard" aria-label="Next card">→</button>
+          </div>
+        <% } %>
+
+        <div class="nav-controls <%= mode === 'study' ? '' : 'preview-counter-only' %>">
+          <% if (mode === 'study') { %>
+          <button type="button" class="btn btn-nav" id="btnPrev" disabled>← Previous</button>
+          <button type="button" class="btn btn-nav" id="btnNextCard">Next →</button>
+          <% } else { %>
+          <span class="card-counter" id="cardCounter">1 / <%= flashcards.length %></span>
+          <% } %>
+        </div>
+      </section>
+
+      <% if (mode === 'study') { %>
+      <section class="results-screen is-hidden" id="resultsScreen">
+        <h2>Session Complete!</h2>
+        <p class="results-score" id="resultsScoreText">You scored 0 / <%= flashcards.length %></p>
+        <p class="results-percent" id="resultsPercentText">0%</p>
+        <div class="results-actions">
+          <button type="button" class="btn btn-start" id="btnRestartStudy">Restart Test</button>
+          <a href="/sets" class="btn btn-back">Back to Decks</a>
+        </div>
+      </section>
+      <% } %>
+    <% } %>
+  </main>
+
+  <script>
+    window.STUDY_DATA = {
+      mode: "<%= mode %>",
+      setId: "<%= set.id %>",
+      flashcards: <%- JSON.stringify(flashcards) %>
+    };
+  </script>
+  <script src="/scripts/study.js"></script>
+</body>
+</html>

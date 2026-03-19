@@ -4,13 +4,8 @@ function openCreate(){
 
 async function createSet(){
 
-  const title = document.getElementById("newTitle").value;
+  const title = document.getElementById("newTitle").value.trim();
   const color = document.getElementById("newColor").value;
-
-  if(!title){
-    alert("Enter a title");
-    return;
-  }
 
   await fetch("/sets/create",{
     method:"POST",
@@ -26,31 +21,9 @@ async function createSet(){
   location.reload();
 }
 
-async function editSet(id){
-
-  const newTitle = prompt("New title:");
-  const newColor = prompt("New color hex (#ff0000):");
-
-  if(!newTitle && !newColor) return;
-
-  await fetch("/sets/edit",{
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json"
-    },
-    body: JSON.stringify({
-      id,
-      title:newTitle,
-      color:newColor
-    })
-  });
-
-  location.reload();
-}
-
 async function deleteSet(id){
 
-  const confirmDelete = confirm("Are you sure you want to delete this set?");
+  const confirmDelete = confirm("Are you sure you want to delete this deck?");
   if(!confirmDelete) return;
 
   const res = await fetch("/sets/delete",{

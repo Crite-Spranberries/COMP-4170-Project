@@ -77,31 +77,19 @@ body {
 .set-title {
   margin: 10px 0;
   font-size: 22px;
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
-
-.set-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
 .set-count {
   font-size: 14px;
   margin-bottom: 20px;
 }
 
 .set-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  font-size: 14px;
   margin-top: auto;
-  padding-top: 10px;
+
+  display: flex;
+  gap: 15px;
+
+  font-size: 14px;
 }
 
 .set-actions button,
@@ -112,11 +100,6 @@ body {
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
-}
-
-.action-separator {
-  opacity: 0.8;
-  font-weight: 700;
 }
 
 .create-btn {
@@ -144,51 +127,28 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .modal-card {
-  background: var(--surface-glass);
+  background: var(--color-white);
+
   padding: 30px;
-  border-radius: var(--radius-lg);
+
+  border-radius: var(--radius-sm);
+
   width: 300px;
+
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-}
 
-.modal-card h3 {
-  margin: 0;
-  color: var(--color-white);
-  text-align: center;
+  gap: 15px;
 }
 
 .modal-card input {
   padding: 10px;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  background: rgba(255, 255, 255, 0.16);
-  color: var(--color-white);
-  outline: none;
-}
 
-.modal-card input::placeholder {
-  color: rgba(255, 255, 255, 0.85);
-}
+  border-radius: 6px;
 
-.modal-card button {
-  background: var(--color-purple);
-  border: none;
-  color: var(--color-white);
-  padding: 10px 14px;
-  border-radius: var(--radius-sm);
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.modal-card button:hover {
-  background: #5d1f8f;
+  border: 1px solid #ccc;
 }

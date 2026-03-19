@@ -1,5 +1,7 @@
+@import url("/styles/theme.css");
+
 :root {
-  --lato: 'lato', sans-serif;
+  --lato: var(--font-primary);
   --h1: 36px;
   --h2: 32px;
   --h3: 28px;
@@ -7,12 +9,12 @@
   --h5: 20px;
   --h6: 18px;
   --body: 16px;
-  --orange: #FF9B00;
-  --white: #FFFFFF;
-  --black: #000000;
-  --darkyellow: #FFC900;
-  --yellow: #FFE100;
-  --cream: #EBE389;
+  --orange: var(--color-orange);
+  --white: var(--color-white);
+  --black: var(--color-black);
+  --darkyellow: var(--color-dark-yellow);
+  --yellow: var(--color-yellow);
+  --cream: var(--color-cream);
  
 }
 

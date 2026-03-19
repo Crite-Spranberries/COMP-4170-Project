@@ -1,3 +1,5 @@
+@import url("/styles/theme.css");
+
 .navbar {
   display: flex;
   justify-content: center; /* keeps nav links centered */
@@ -38,7 +40,7 @@
 
 .navLinks a {
   text-decoration: none;
-  color: white;
+  color: var(--color-white);
   font-size: 18px;
   font-weight: 500;
   position: relative;
@@ -54,7 +56,7 @@
   bottom: -3px;
   width: 0%;
   height: 2px;
-  background: purple;
+  background: var(--color-purple);
   transition: width 0.25s ease;
 }
 
@@ -64,5 +66,5 @@
 
 /* active page */
 .navLinks a.active {
-  color: purple;
+  color: var(--color-purple);
 }

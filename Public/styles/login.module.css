@@ -1,15 +1,17 @@
+@import url("/styles/theme.css");
+
 :root{
-  --orange: #FF9B00;
-  --darkyellow: #FFC900;
-  --yellow: #FFE100;
-  --cream: #EBE389;
-  --white: #FFFFFF;
-  --black: #000000;
+  --orange: var(--color-orange);
+  --darkyellow: var(--color-dark-yellow);
+  --yellow: var(--color-yellow);
+  --cream: var(--color-cream);
+  --white: var(--color-white);
+  --black: var(--color-black);
 }
 
 body{
   margin:0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-secondary);
 }
 
 .auth-wrapper{

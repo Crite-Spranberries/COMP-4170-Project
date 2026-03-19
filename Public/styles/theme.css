@@ -1,0 +1,44 @@
+:root {
+  /* Typography */
+  --font-primary: "lato", sans-serif;
+  --font-secondary: "Inter", sans-serif;
+
+  /* Brand colors */
+  --color-orange: #ff9b00;
+  --color-dark-yellow: #ffc900;
+  --color-yellow: #ffe100;
+  --color-cream: #ebe389;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-purple: purple;
+
+  /* Surface colors */
+  --surface-glass: rgba(255, 255, 255, 0.12);
+  --surface-glass-strong: rgba(255, 255, 255, 0.2);
+  --surface-dark-soft: rgba(0, 0, 0, 0.25);
+  --surface-dark-hover: rgba(0, 0, 0, 0.35);
+  --surface-danger-soft: rgba(185, 0, 0, 0.35);
+
+  /* Layout + shape */
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.18);
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --shadow-card-light: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-floating: 0 12px 32px rgba(0, 0, 0, 0.2);
+
+  /* Gradients */
+  --gradient-page: linear-gradient(135deg, #ff9b00, #ffe100, #ebe389);
+  --gradient-card-front: linear-gradient(145deg, #fff4c4 0%, #ebe389 100%);
+  --gradient-card-back: linear-gradient(145deg, #fff1b0 0%, #e3d873 100%);
+
+  /* Motion */
+  --transition-fast: 0.25s ease;
+  --transition-card-flip: 0.5s ease;
+}
+

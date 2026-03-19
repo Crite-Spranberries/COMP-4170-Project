@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= set.title %> - Deck</title>
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/deck.module.css">
+</head>
+
+<body>
+  <%- include("partials/navbar/index", { currentPath: "/sets" }) %>
+
+  <main class="deck-page">
+    <header class="deck-header" style="background:<%= set.color %>">
+      <div class="deck-header-left">
+        <p class="deck-topic"><%= set.topic %></p>
+        <h1 class="deck-title" id="deckTitleText"><%= set.title %></h1>
+        <input
+          id="deckTitleInput"
+          class="inline-title-input is-hidden"
+          type="text"
+          maxlength="120"
+          value="<%= set.title %>"
+        >
+        <p class="deck-meta"><%= flashcards.length %> cards</p>
+      </div>
+
+      <div class="deck-header-actions">
+        <button
+          class="btn"
+          id="renameDeckBtn"
+          data-set-id="<%= set.id %>"
+          data-editing="false"
+          onclick="toggleDeckNameEdit(this)">
+          Rename
+        </button>
+        <a class="btn btn-secondary" href="/sets">Back to Decks</a>
+      </div>
+    </header>
+
+    <section class="deck-content">
+      <div class="add-card">
+        <h2>Add flashcard</h2>
+        <form method="POST" action="/decks/<%= set.id %>/flashcards/create" class="add-form">
+          <textarea name="front" placeholder="Front (term / question)" required maxlength="120"></textarea>
+          <textarea name="back" placeholder="Back (definition / answer)" required maxlength="120"></textarea>
+          <p class="field-hint">Max 120 characters per side.</p>
+          <button class="btn" type="submit">Add</button>
+        </form>
+      </div>
+
+      <div class="cards-list">
+        <h2>Cards</h2>
+
+        <% if (flashcards.length === 0) { %>
+          <p class="empty">No cards yet. Add your first flashcard above.</p>
+        <% } %>
+
+        <% flashcards.forEach((card) => { %>
+          <div class="card-row">
+            <div class="card-text">
+              <div class="card-set-name"><%= set.title %></div>
+              <div class="card-front"><%= card.front %></div>
+              <div class="card-back"><%= card.back %></div>
+              <textarea class="card-front-input inline-editor is-hidden" maxlength="120"><%= card.front %></textarea>
+              <textarea class="card-back-input inline-editor is-hidden" maxlength="120"><%= card.back %></textarea>
+            </div>
+
+            <div class="card-actions">
+              <button
+                class="link"
+                data-set-id="<%= set.id %>"
+                data-card-id="<%= card.id %>"
+                data-editing="false"
+                onclick="toggleCardEdit(this)">
+                Edit
+              </button>
+              <form method="POST" action="/decks/<%= set.id %>/flashcards/<%= card.id %>/delete">
+                <button class="link danger" type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </section>
+  </main>
+
+  <script src="/scripts/deck.js"></script>
+</body>
+</html>
+

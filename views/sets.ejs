@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Flashcard Sets</title>
+<title>Flashcard Decks</title>
 
 <link rel="stylesheet" href="/styles/index.css">
 <link rel="stylesheet" href="/styles/sets.module.css">
@@ -13,15 +13,30 @@
 <%- include("partials/navbar/index", { currentPath: currentPath }) %>
 
 <div class="sets-page">
+  <div class="sets-toolbar">
+    <button onclick="openCreate()" class="create-btn">
+      Add New Deck
+    </button>
+  </div>
 
   <div class="sets-container">
 
     <% sets.forEach((set) => { %>
 
-      <div class="set-card" style="background:<%= set.color %>">
+      <div class="set-card" style="background:<%= set.color %>;">
 
         <div class="set-header">
           <p class="set-topic"><%= set.topic %></p>
+          <div class="set-top-actions">
+            <a href="/decks/<%= set.id %>" class="edit-btn">
+              Edit Deck
+            </a>
+            <button
+              class="delete-btn"
+              onclick="deleteSet(<%= set.id %>)">
+              Delete
+            </button>
+          </div>
         </div>
 
         <div class="set-body">
@@ -29,26 +44,20 @@
           <h2 class="set-title"><%= set.title %></h2>
 
           <p class="set-count">
-            <%= set.cards %> cards in deck
+            <%= set.cards %> card(s) in deck
           </p>
 
           <div class="set-actions">
 
-            <a href="/cards?set=<%= set.id %>" class="study-btn">
-              Study
+            <a href="/decks/<%= set.id %>/study" class="study-btn">
+              Test
             </a>
 
-            <button 
-              class="edit-btn"
-              onclick="editSet(<%= set.id %>)">
-              Edit Deck
-            </button>
+            <span class="action-separator" aria-hidden="true">|</span>
 
-            <button 
-              class="delete-btn"
-              onclick="deleteSet(<%= set.id %>)">
-              Delete
-            </button>
+            <a href="/decks/<%= set.id %>/preview" class="study-btn preview-btn">
+              Preview
+            </a>
 
           </div>
 
@@ -60,18 +69,6 @@
 
   </div>
 
-
-  <div class="create-panel">
-
-    <h2>Custom Card Set</h2>
-    <p>Create a custom study set</p>
-
-    <button onclick="openCreate()" class="create-btn">
-      Create New
-    </button>
-
-  </div>
-
 </div>
 
 
@@ -79,12 +76,12 @@
 
   <div class="modal-card">
 
-    <h3>Create New Set</h3>
+    <h3>Create New Deck</h3>
 
     <input 
       type="text"
       id="newTitle"
-      placeholder="Set Title"
+      placeholder="Deck Title"
     >
 
     <input
