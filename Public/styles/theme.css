@@ -1,16 +1,40 @@
+/* Font Faces */
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("../fonts/RedHatText-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("../fonts/RedHatText-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   /* Typography */
-  --font-primary: "lato", sans-serif;
-  --font-secondary: "Inter", sans-serif;
+  --font-primary: "Bricolage Grotesque", sans-serif;
+  --font-secondary: "Red Hat Text", serif;
 
   /* Brand colors */
-  --color-orange: #ff9b00;
-  --color-dark-yellow: #ffc900;
-  --color-yellow: #ffe100;
-  --color-cream: #ebe389;
-  --color-white: #ffffff;
+  --color-soft-blue: #E0EFFF;
+  --color-white: #FFFAEB;
+  --color-light-blue: #A3C5EB;
+  --color-blue: #113B6D;
+  --color-blank-white: #ffffff;
   --color-black: #000000;
-  --color-purple: purple;
+  --color-yellow: #FFE58D;
+  --color-light-yellow: #FFECAA;
 
   /* Surface colors */
   --surface-glass: rgba(255, 255, 255, 0.12);
@@ -33,7 +57,7 @@
   --shadow-floating: 0 12px 32px rgba(0, 0, 0, 0.2);
 
   /* Gradients */
-  --gradient-page: linear-gradient(135deg, #ff9b00, #ffe100, #ebe389);
+  --gradient-page: linear-gradient(135deg, #E0EFFF, #FFFAEB);
   --gradient-card-front: linear-gradient(145deg, #fff4c4 0%, #ebe389 100%);
   --gradient-card-back: linear-gradient(145deg, #fff1b0 0%, #e3d873 100%);
 
@@ -41,4 +65,3 @@
   --transition-fast: 0.25s ease;
   --transition-card-flip: 0.5s ease;
 }
-
