@@ -74,10 +74,11 @@ body {
 }
 
 .btn-primary:hover {
-  background: var(--darkyellow);
+  background: white;
+  color: #113B6D;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
+} 
 
 /* Secondary button */
 
@@ -94,6 +95,6 @@ body {
 }
 
 .btn-secondary:hover {
-  background: var(--orange);
-  color: var(--white);
+  background: #113B6D;
+  color: white;
 }
