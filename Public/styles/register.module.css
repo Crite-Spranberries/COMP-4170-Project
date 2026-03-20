@@ -16,8 +16,6 @@ body {
 }
 
 .auth-wrapper {
-  position: relative;
-  overflow: hidden;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -26,29 +24,7 @@ body {
   background: linear-gradient(135deg, var(--cream), var(--yellow));
 }
 
-.auth-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 800px;
-  height: 800px;
-  background: url("/images/BackgroundStars.svg") no-repeat center/contain;
-  pointer-events: none;
-}
-
-.auth-corner-bird {
-  position: absolute;
-  bottom: 70px;
-  right: 70px;
-  width: 500px;
-  height: auto;
-  pointer-events: none;
-}
-
 .auth-card {
-  position: relative;
-  z-index: 1;
   width: 400px;
 
   background: var(--blue);

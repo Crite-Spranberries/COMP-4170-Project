@@ -32,11 +32,11 @@
                 <%= set.topic %>
               </p>
               <div class="set-top-actions">
-                <a href="/decks/<%= set.id %>" class="edit-btn" aria-label="Edit deck">
-                  <img src="/images/Edit%204.svg" alt="" class="edit-icon" aria-hidden="true">
+                <a href="/decks/<%= set.id %>" class="edit-btn">
+                  Edit Deck
                 </a>
-                <button class="delete-btn" data-id="<%= set.id %>" onclick="deleteSet(this.dataset.id)" aria-label="Delete deck">
-                  <img src="/images/Trash.svg" alt="" class="delete-icon" aria-hidden="true">
+                <button class="delete-btn" onclick="deleteSet(<%= set.id %>)">
+                  Delete
                 </button>
               </div>
             </div>
