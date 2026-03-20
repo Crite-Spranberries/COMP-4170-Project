@@ -2,7 +2,7 @@
   "name": "comp-4170-project",
   "version": "1.0.0",
   "description": "- Nathan - Sam - Kass - Pablo",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "dev": "node server.js",
