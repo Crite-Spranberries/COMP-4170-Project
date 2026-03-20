@@ -42,16 +42,19 @@ body {
 }
 
 .title {
+  font-family: "Bricolage Grotesque", sans-serif;
   font-size: 38px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--black);
+  color: var(--blue);
 }
 
 .subtitle {
+  font-family: "Bricolage Grotesque", sans-serif;
   color: #555;
   margin-bottom: 30px;
 }
+
 
 .button-group {
   display: flex;
@@ -69,23 +72,23 @@ body {
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-
+  font-family: "Bricolage Grotesque", sans-serif;
   transition: 0.2s;
 }
 
 .btn-primary:hover {
-  background: white;
+  background: var(--light-blue);
   color: #113B6D;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-} 
+}
 
 /* Secondary button */
 
 .btn-secondary {
-  border: 2px solid var(--orange);
-  color: var(--orange);
-
+  background: var(--yellow);
+  color: var(--blue);
+  font-family: "Bricolage Grotesque", sans-serif;
   padding: 12px 32px;
   border-radius: 8px;
   text-decoration: none;
@@ -95,6 +98,8 @@ body {
 }
 
 .btn-secondary:hover {
-  background: #113B6D;
-  color: white;
+  background: var(--light-yellow);
+  color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
