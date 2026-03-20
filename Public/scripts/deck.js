@@ -17,6 +17,11 @@ async function renameDeck(setId) {
   location.reload();
 }
 
+const deckHeaderEl = document.querySelector(".deck-header[data-color]");
+if (deckHeaderEl) {
+  deckHeaderEl.style.background = deckHeaderEl.dataset.color || "";
+}
+
 async function toggleDeckNameEdit(buttonEl) {
   const deckTitleText = document.getElementById("deckTitleText");
   const deckTitleInput = document.getElementById("deckTitleInput");

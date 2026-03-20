@@ -1,5 +1,10 @@
 (function () {
-  const data = window.STUDY_DATA;
+  const studyDataScript = document.getElementById("studyDataJson");
+  const data = studyDataScript ? JSON.parse(studyDataScript.textContent || "{}") : null;
+  const studyHeaderColorEl = document.querySelector(".study-header[data-color]");
+  if (studyHeaderColorEl) {
+    studyHeaderColorEl.style.background = studyHeaderColorEl.dataset.color || "";
+  }
   if (!data || !data.flashcards || data.flashcards.length === 0) return;
 
   const mode = data.mode;

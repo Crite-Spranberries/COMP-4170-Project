@@ -11,7 +11,7 @@
   <%- include("partials/navbar/index", { currentPath: "/sets", useBlueLogo: true }) %>
 
   <main class="deck-page">
-    <header class="deck-header" style="background:<%= set.color %>">
+    <header class="deck-header" data-color="<%= set.color %>">
       <div class="deck-header-left">
         <p class="deck-topic"><%= set.topic %></p>
         <h1 class="deck-title" id="deckTitleText"><%= set.title %></h1>
